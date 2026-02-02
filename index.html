@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMart | CSS Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="primary">Tech</span><span class="accent">Mart</span></h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#deals">Deals</a>
+                <a href="#about">About</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn login">
+                    <i class="user"></i> Login
+                </button>
+                <button class="btn cart">
+                    <i class="shopping-cart"></i> Cart
+                    <span class="cart-badge">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Big Weekend Sale on Gadgets</h2>
+            <p>Up to 40% off on selected laptops, headphones, and accessories. Limited stocks only.</p>
+            <button class="btn primary">Shop Deals <i class="arrow-right"></i></button>
+        </div>
+        <div class="hero-decor"></div>
+    </section>
+
+    <section class="filters container">
+        <h3>Filter by</h3>
+        <div class="filter-pills">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">AI</button>
+            <button class="filter-pill">Laptops</button>
+            <button class="filter-pill">Headphones</button>
+            <button class="filter-pill">Accessories</button>
+        </div>
+    </section>
+
+    <section class="products container">
+        <h3>Featured Products</h3>
+        <div class="product-grid">
+            <div class="product-card" data-rating="4.5">
+                <div class="card-image">
+                    <img src="lab-advanced-css/products/Laptop.png" alt="Laptop">
+                    <span class="badge sale">SALE</span>
+                </div>
+                <div class="card-content">
+                    <h4>Ultrabook Pro 14"</h4>
+                    <p>Intel i7 - 16GB RAM - 512GB SSD</p>
+                    <div class="price">
+                        <span class="old-price">$54,990 (₱4,990)</span>
+                        <span class="current-price">₱3,499</span>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.5</span>
+                    </div>
+                    <button class="btn add-to-cart">
+                        <i class="cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card" data-rating="4.8">
+                <div class="card-image">
+                    <img src="/lab-advanced-css/products/Headphones.avif" alt="Headphones">
+                    <span class="badge low-stock">Low Stock</span>
+                </div>
+                <div class="card-content">
+                    <h4>Noise-Canceling Headphones</h4>
+                    <p>Wireless - 50h battery - Fast charge</p>
+                    <div class="price">
+                        <span class="old-price">$3,499</span>
+                        <span class="current-price">₱799</span>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8</span>
+                    </div>
+                    <button class="btn add-to-cart added">
+                        <i class="check"></i> Added
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card" data-rating="4.2">
+                <div class="card-image">
+                    <img src="/lab-advanced-css/products/Mouse.jfif" alt="Mouse">
+                    <span class="badge sale">SALE</span>
+                </div>
+                <div class="card-content">
+                    <h4>Ergonomic Wireless Mouse</h4>
+                    <p>Silent click - 2.4 GHz - USB-C</p>
+                    <div class="price">
+                        <span class="old-price">$4,999 (₱4.99)</span>
+                        <span class="current-price">₱2,199</span>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>4.2</span>
+                    </div>
+                    <button class="btn add-to-cart">
+                        <i class="cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card" data-rating="4.7">
+                <div class="card-image">
+                    <img src="/lab-advanced-css/products/Keyboard.avif" alt="Keyboard">
+                    <span class="badge new">NEW</span>
+                </div>
+                <div class="card-content">
+                    <h4>Mechanical Keyboard (RGB)</h4>
+                    <p>Blue switches - RGB backlight</p>
+                    <div class="price">
+                        <span class="old-price">$2,199 (₱4.00)</span>
+                        <span class="current-price">₱4,000</span>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>4.7</span>
+                    </div>
+                    <button class="btn add-to-cart">
+                        <i class="cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>TechMart CSS Lab © 2023 | Flexbox • Grid • Variables • Responsive</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const badge = document.querySelector('.cart-badge');
+                if(this.classList.contains('added')) {
+                    this.classList.remove('added');
+                    this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
+                    badge.textContent = Math.max(0, parseInt(badge.textContent) - 1);
+                } else {
+                    this.classList.add('added');
+                    this.innerHTML = '<i class="fas fa-check"></i> Added';
+                    badge.textContent = parseInt(badge.textContent) + 1;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
